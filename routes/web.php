@@ -14,9 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $data = [
-        "msg" => "benvenuto"
+    $comics = config('store');
+    return view('home', ['comics' => $comics]);
+});
 
-    ];
-    return view('home', $data);
+Route::get('/home', function () {
+    $comics = config('store');
+    return view('home', ['comics' => $comics]);
+});
+
+
+Route::get('/about', function () {
+    return view('about');
 });

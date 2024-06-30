@@ -8,8 +8,21 @@
 </head>
 
 <body>
-    <h1>ciao blade</h1>
-    <h2>{{$msg}}</h2>
+    <h1>Lista dei Fumetti</h1>
+    <ul>
+        @foreach($comics as $comic)
+        <li>
+            <h2>{{ $comic['title'] }}</h2>
+            <img src="{{ $comic['thumb'] }}" style="max-width: 200px;">
+            <p>{{ $comic['description'] }}</p>
+            <p><strong>Prezzo:</strong> {{ $comic['price'] }}</p>
+            <p><strong>Serie:</strong> {{ $comic['series'] }}</p>
+            <p><strong>Data di vendita:</strong> {{ $comic['sale_date'] }}</p>
+            <p><strong>Tipo:</strong> {{ $comic['type'] }}</p>
+        </li>
+        @endforeach
+    </ul>
+
 </body>
 
 </html>
